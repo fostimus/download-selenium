@@ -1,0 +1,16 @@
+---
+- name: Download selenium-{{ language_binding }}
+  include: jc.yml
+  when: language_binding == "java" or language_binding == "dotnet"
+
+- name: Download selenium-{{ language_binding }}
+  include: ruby.yml
+  when: language_binding == "ruby"
+
+- name: Download selenium-{{ language_binding }}
+  include: python.yml
+  when: language_binding == "python"
+
+- name: Download selenium-{{ language_binding }}
+  include: js.yml
+  when: language_binding == "javascript"
