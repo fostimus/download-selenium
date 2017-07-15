@@ -4,5 +4,9 @@
     name: 
       - ruby
       - rubygems
-    state: latest
+    state: present
 
+- name: Install selenium-ruby
+  gem:
+    name: selenium-webdriver
+    state: latest
