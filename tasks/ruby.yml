@@ -1,10 +1,12 @@
 ---
-- name: Install Ruby
+- name: Install Ruby and other dependencies
   yum:
     name: 
       - ruby
       - rubygems
-    state: present
+      - ruby-devel
+      - gcc
+    state: latest
 
 - name: Install selenium-ruby
   gem:
