@@ -1,2 +1,3 @@
 ---
 language-binding: java
+selenium_version: 3.4.0

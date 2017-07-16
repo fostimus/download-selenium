@@ -8,10 +8,10 @@
 - name: Get {{ language_binding }} zip file to Downloads
   get_url:
     dest: "{{ ansible_env.HOME }}/Downloads"
-    url: "http://selenium-release.storage.googleapis.com/3.4/selenium-{{ language_binding}}-3.4.0.zip"
+    url: "http://selenium-release.storage.googleapis.com/{{ selenium_version | regex_replace('\\.[0-9]+$', '') }}/selenium-{{ language_binding}}-{{ selenium_version }}.zip"
 
 - name: Extract zip file to /opt
   unarchive:
     remote_src: yes
     dest: "/opt/selenium-{{ language_binding }}"
-    src: "{{ ansible_env.HOME }}/Downloads/selenium-{{ language_binding }}-3.4.0.zip"
+    src: "{{ ansible_env.HOME }}/Downloads/selenium-{{ language_binding }}-{{ selenium_version }}.zip"
