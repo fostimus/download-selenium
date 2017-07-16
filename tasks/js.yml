@@ -1,0 +1,16 @@
+---
+- name: Download RPM file
+  get_url:
+    dest: "{{ ansible_env.HOME }}/Downloads"
+    url: https://rpm.nodesource.com/setup_6.x
+
+- name: Install node repo
+  command: "/usr/bin/bash {{ ansible_env.HOME }}/Downloads/setup_6.x"
+
+- name: Install node.js
+  yum:
+    name: nodejs
+    state: latest
+
+- name: Install selenium-javascript
+  command: "/usr/bin/npm install selenium-webdriver"
